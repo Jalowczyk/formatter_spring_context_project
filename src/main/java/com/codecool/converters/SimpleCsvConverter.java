@@ -1,19 +1,19 @@
-package com.codecool;
+package com.codecool.converters;
 
 import com.codecool.formatters.OutputFormat;
 import com.codecool.formatters.OutputFormatter;
 import com.codecool.formatters.OutputFormatterFactory;
+import com.codecool.readers.CsvFileReader;
 
 import java.nio.file.Path;
 
-
 public class SimpleCsvConverter {
 
-    private FileReader fileReader;
+    private CsvFileReader fileReader;
     private OutputFormatterFactory outputFormatterFactory;
     private OutputFormat format;
 
-    public SimpleCsvConverter(FileReader fileReader, OutputFormatterFactory outputFormatterFactory) {
+    public SimpleCsvConverter(CsvFileReader fileReader, OutputFormatterFactory outputFormatterFactory) {
         this.fileReader = fileReader;
         this.outputFormatterFactory = outputFormatterFactory;
         this.format = OutputFormat.TABLE;
