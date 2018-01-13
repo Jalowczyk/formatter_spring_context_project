@@ -6,6 +6,6 @@ import java.util.Map;
 public class TableOutputFormatter implements OutputFormatter{
 
     public void printToConsole(List<Map<String,String>> data) {
-        System.out.println("Converting...");
+        System.out.println("Converting to table...");
     }
 }
