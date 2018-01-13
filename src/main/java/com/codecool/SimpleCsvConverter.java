@@ -1,6 +1,5 @@
 package com.codecool;
 
-
 import java.nio.file.Path;
 
 public class SimpleCsvConverter {
@@ -11,7 +10,7 @@ public class SimpleCsvConverter {
         this.fr = fr;
     }
 
-    public void convert(Path file, ConverterApplication.Format outputFormat) {
+    public void convert(Path file, OutputFormat outputFormat) {
         System.out.println("I convert CSV to " + outputFormat.getFormatValue() + " format...");
     }
 

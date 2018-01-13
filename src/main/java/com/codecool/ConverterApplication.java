@@ -8,7 +8,7 @@ public class ConverterApplication {
 
     public static void main(String[] args) {
         String message = "No input file defined";
-        Format outputFormat = null;
+        OutputFormat outputFormat = null;
         Path path = null;
         FileReader fr = new FileReader();
         SimpleCsvConverter scc = new SimpleCsvConverter(fr);
@@ -20,7 +20,7 @@ public class ConverterApplication {
         }
         else if (args.length == 2) {
             path = Paths.get(args[1]);
-            for (Format f : Format.values()) {
+            for (OutputFormat f : OutputFormat.values()) {
                 if (f.getFormatValue().equalsIgnoreCase(args[0])) {
                     outputFormat = f;
                 }
@@ -28,20 +28,6 @@ public class ConverterApplication {
             scc.convert(path, outputFormat);
         } else {
             System.out.println(message);
-        }
-    }
-
-    public enum Format {
-        JSON("json"), XML("xml"), TABLE("table");
-
-        private final String formatValue;
-
-        Format(String formatValue) {
-            this.formatValue = formatValue;
-        }
-
-        public String getFormatValue() {
-            return formatValue;
         }
     }
 }
