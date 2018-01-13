@@ -1,20 +1,25 @@
 package com.codecool;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class ConverterApplication {
 
     public static void main(String[] args) {
         String message = "No input file defined";
         Format outputFormat = null;
-        String path = null;
-        SimpleCsvConverter scc = new SimpleCsvConverter();
+        Path path = null;
+        FileReader fr = new FileReader();
+        SimpleCsvConverter scc = new SimpleCsvConverter(fr);
 
         if (args.length == 1) {
-            path = args[0];
+            path = Paths.get(args[0]);
             scc.convert(path);
 
         }
         else if (args.length == 2) {
-            path = args[1];
+            path = Paths.get(args[1]);
             for (Format f : Format.values()) {
                 if (f.getFormatValue().equalsIgnoreCase(args[0])) {
                     outputFormat = f;
