@@ -5,6 +5,8 @@ import com.codecool.formatters.OutputFormatter;
 import com.codecool.formatters.OutputFormatterFactory;
 import com.codecool.readers.CsvFileReader;
 
+import java.io.FileNotFoundException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class SimpleCsvConverter {
@@ -30,8 +32,11 @@ public class SimpleCsvConverter {
 
     public void convert(Path file) {
         OutputFormatter outputFormatter = this.outputFormatterFactory.createByFormat(this.format);
-        outputFormatter.printToConsole(fileReader.readData(file));
+        try {
+            outputFormatter.printToConsole(fileReader.readData(file));
+        } catch (FileNotFoundException e){
+            System.out.println("Sorry, file doesn't exists.");
+        }
     }
-
-
 }
+
