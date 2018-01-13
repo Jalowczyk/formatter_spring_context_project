@@ -1,5 +1,7 @@
 package com.codecool;
 
+import com.codecool.formatters.OutputFormatterFactory;
+
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,7 +13,8 @@ public class ConverterApplication {
         OutputFormat outputFormat = null;
         Path path = null;
         FileReader fr = new FileReader();
-        SimpleCsvConverter scc = new SimpleCsvConverter(fr);
+        OutputFormatterFactory off = new OutputFormatterFactory();
+        SimpleCsvConverter scc = new SimpleCsvConverter(fr, off);
 
         if (args.length == 1) {
             path = Paths.get(args[0]);
