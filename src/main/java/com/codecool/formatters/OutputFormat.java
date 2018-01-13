@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.formatters;
 
 import com.codecool.formatters.JsonOutputFormatter;
 import com.codecool.formatters.OutputFormatter;
@@ -22,5 +22,17 @@ public enum OutputFormat {
 
     public String getFormatValue() {
         return formatValue;
+    }
+
+    public static OutputFormat getNeededOutputFormat(String consoleInput) {
+        OutputFormat outputFormat = null;
+
+        for (OutputFormat f : OutputFormat.values()) {
+            if (f.getFormatValue().equalsIgnoreCase(consoleInput)) {
+                outputFormat = f;
+            }
+        }
+
+        return outputFormat;
     }
 }
