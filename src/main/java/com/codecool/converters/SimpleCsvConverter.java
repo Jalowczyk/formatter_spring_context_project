@@ -32,11 +32,8 @@ public class SimpleCsvConverter {
 
     public void convert(Path file) {
         OutputFormatter outputFormatter = this.outputFormatterFactory.createByFormat(this.format);
-        try {
-            outputFormatter.printToConsole(fileReader.readData(file));
-        } catch (FileNotFoundException e){
-            System.out.println("Sorry, file doesn't exists.");
-        }
+        outputFormatter.printToConsole(fileReader.readData(file));
+
     }
 }
 
