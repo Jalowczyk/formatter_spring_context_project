@@ -4,11 +4,10 @@ import com.codecool.formatters.OutputFormat;
 import com.codecool.formatters.OutputFormatter;
 import com.codecool.formatters.OutputFormatterFactory;
 import com.codecool.readers.CsvFileReader;
-
-import java.io.FileNotFoundException;
-import java.nio.file.Files;
+import org.springframework.stereotype.Component;
 import java.nio.file.Path;
 
+@Component("converter")
 public class SimpleCsvConverter {
 
     private CsvFileReader fileReader;
