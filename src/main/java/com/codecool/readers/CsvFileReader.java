@@ -1,9 +1,11 @@
 package com.codecool.readers;
 
+import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
 
+@Component
 public class CsvFileReader implements FileReader {
 
     public List<Map<String, String>> readData(Path path) {
