@@ -2,8 +2,7 @@ package com.codecool;
 
 import com.codecool.converters.SimpleCsvConverter;
 import com.codecool.formatters.OutputFormat;
-import com.codecool.formatters.OutputFormatterFactory;
-import com.codecool.readers.CsvFileReader;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,12 +10,11 @@ import java.nio.file.Paths;
 public class ConverterApplication {
 
     public static void main(String[] args) {
-        String message = "No input file defined";
+
         OutputFormat outputFormat = null;
         Path path = null;
-        CsvFileReader fr = new CsvFileReader();
-        OutputFormatterFactory off = new OutputFormatterFactory();
-        SimpleCsvConverter scc = new SimpleCsvConverter(fr, off);
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        SimpleCsvConverter scc = (SimpleCsvConverter) ctx.getBean("converter");
 
         if (args.length == 1) {
             path = Paths.get(args[0]);
@@ -26,7 +24,7 @@ public class ConverterApplication {
             outputFormat = OutputFormat.getNeededOutputFormat(args[0]);
             scc.convert(path, outputFormat);
         } else {
-            System.out.println(message);
+            System.out.println("No input file defined");
         }
     }
 }
