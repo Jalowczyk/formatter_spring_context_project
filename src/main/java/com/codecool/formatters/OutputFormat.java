@@ -1,10 +1,5 @@
 package com.codecool.formatters;
 
-import com.codecool.formatters.JsonOutputFormatter;
-import com.codecool.formatters.OutputFormatter;
-import com.codecool.formatters.TableOutputFormatter;
-import com.codecool.formatters.XmlOutputFormatter;
-
 public enum OutputFormat {
     JSON("json", JsonOutputFormatter.class), XML("xml", XmlOutputFormatter.class), TABLE("table", TableOutputFormatter.class);
 

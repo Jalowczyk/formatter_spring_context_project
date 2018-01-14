@@ -1,6 +1,5 @@
 package com.codecool.readers;
 
-import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
