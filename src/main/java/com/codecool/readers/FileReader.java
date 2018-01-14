@@ -7,6 +7,6 @@ import java.util.Map;
 
 public interface FileReader {
 
-    List<Map<String, String>> readData(Path file) throws FileNotFoundException;
+    List<Map<String, String>> readData(Path file);
 
 }
